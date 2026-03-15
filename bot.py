@@ -32,6 +32,10 @@ def ask_gemini(prompt):
     try:
         response = requests.post(url, headers=headers, json=data, timeout=30)
         res_json = response.json()
+        if 'error' in res_json:
+            return f"❌ Gemini xatosi: {res_json['error']['message']}"
+        if 'candidates' not in res_json:
+            return f"❌ Javob xatosi: {str(res_json)}"
         return res_json['candidates'][0]['content']['parts'][0]['text']
     except Exception as e:
         return f"❌ Xato: {str(e)}"
