@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: english-teacher-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: TOKEN
+        value: 8617624370:AAHbRVLvYjnf-bdCk9J45iuVTVZVHnRfk1o
+      - key: GEMINI_KEY
+        value: AIzaSyBHHUBryBB7oR-ykH1r8eoRQnPnnnuQ1WI
