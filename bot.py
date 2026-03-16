@@ -1,8 +1,10 @@
 import telebot
 import os
 import google.generativeai as genai
-from apscheduler.schedulers.background import BackgroundScheduler
-import pytz
+from flask import Flask
+from threading import Thread
+import time
+import requests
 
 # API kalitlarni Environment Variables orqali olamiz (Xavfsizlik uchun)
 TOKEN = os.environ.get("TOKEN")
